@@ -9,6 +9,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from .models import Game
 from .serializers import GameSerializer
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class JSONResponse(HttpResponse):
@@ -37,7 +38,7 @@ def game_list(request):
 def game_detail(request, pk):
     try:
         game = Game.objects.get(pk=pk)
-    except Game.DoesNotExist:
+    except ObjectDoesNotExist:
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
