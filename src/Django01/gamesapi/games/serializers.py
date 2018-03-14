@@ -1,8 +1,5 @@
 from rest_framework import serializers
-from .models import Game
-from .models import GameCategory
-from .models import PlayerScore
-from .models import Player
+from .models import(Game, GameCategory, PlayerScore, Player)
 
 # class GameSerializer(serializers.Serializer):
 #     pk = serializers.IntegerField(read_only=True)
