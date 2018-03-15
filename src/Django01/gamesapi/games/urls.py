@@ -13,7 +13,7 @@ urlpatterns = [
         name=views.GameCategoryList.name
     ),
     url(
-        r'^game-categories/(?P<pk>[0-9]+)$',
+        r'^game-categories/(?P<pk>[0-9]+)/$',
         views.GameCategoryDetail.as_view(),
         name=views.GameCategoryDetail.name
     ),
@@ -23,7 +23,7 @@ urlpatterns = [
         name=views.GameList.name
     ),
     url(
-        r'^games/(?P<pk>[0-9]+)$',
+        r'^games/(?P<pk>[0-9]+)/$',
         views.GameDetail.as_view(),
         name=views.GameDetail.name
     ),
@@ -33,7 +33,7 @@ urlpatterns = [
         name=views.PlayerList.name
     ),
     url(
-        r'^players/(?P<pk>[0-9]+)$',
+        r'^players/(?P<pk>[0-9]+)/$',
         views.PlayerDetail.as_view(),
         name=views.PlayerDetail.name
     ),
@@ -43,7 +43,7 @@ urlpatterns = [
         name=views.PlayerScoreList.name
     ),
     url(
-        r'^player-scores/(?P<pk>[0-9]+)$',
+        r'^player-scores/(?P<pk>[0-9]+)/$',
         views.PlayerScoreDetail.as_view(),
         name=views.PlayerScoreDetail.name
     ),

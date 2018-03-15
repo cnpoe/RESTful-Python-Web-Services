@@ -63,7 +63,7 @@ class PlayerScore(models.Model):
         Game,
         on_delete=models.CASCADE
     )
-    score = models.ImageField()
+    score = models.IntegerField()
     score_date = models.DateTimeField()
 
     class Meta:
