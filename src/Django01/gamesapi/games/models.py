@@ -4,7 +4,7 @@ from django.db import models
 
 
 class GameCategory(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
 
     class Meta:
         ordering = ('name',)
@@ -15,7 +15,7 @@ class GameCategory(models.Model):
 
 class Game(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     release_date = models.DateTimeField()
     game_category = models.ForeignKey(
         GameCategory,
@@ -39,7 +39,7 @@ class Player(models.Model):
         (FEMALE, 'Female'),
     )
     created = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=50, blank=False, default='')
+    name = models.CharField(max_length=50, blank=False, default='', unique=True)
     gender = models.CharField(
         max_length=2,
         choices=GENDER_CHOICES,
