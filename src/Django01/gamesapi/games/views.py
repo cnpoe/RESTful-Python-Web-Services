@@ -118,6 +118,7 @@ class GameList(generics.ListCreateAPIView):
 
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Game.objects.all()
     serializer_class = GameSerializer
     name = 'game-detail'
 
