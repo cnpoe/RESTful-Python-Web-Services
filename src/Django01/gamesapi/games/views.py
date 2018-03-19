@@ -26,6 +26,8 @@ from games.serializers import UserSerializer
 from rest_framework import permissions
 from games.permissions import IsOwnerOrReadOnly
 
+from rest_framework.throttling import ScopedRateThrottle
+
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
         content = JSONRenderer().render(data)
@@ -108,6 +110,8 @@ class GameCategoryList(generics.ListCreateAPIView):
     queryset = GameCategory.objects.all()
     serializer_class = GameCategorySerializer
     name = 'gamecategory-list'
+    throttle_scope = 'game-categories'
+    throttle_classes = (ScopedRateThrottle,)
 
 
 class UserList(generics.ListAPIView):
@@ -126,6 +130,8 @@ class GameCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = GameCategory.objects.all()
     serializer_class = GameCategorySerializer
     name = 'gamecategory-detail'
+    throttle_scope = 'game-categories'
+    throttle_classes = (ScopedRateThrottle,)
 
 
 class GameList(generics.ListCreateAPIView):
